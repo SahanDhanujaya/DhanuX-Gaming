@@ -12,40 +12,33 @@
     <title>Home</title>
 </head>
 <body>
-<header>
-    <!--Nav Bar-->
-    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+<header style="background-color: #1A1A1A;"  class="container-fluid text-center">
+    <nav class="navbar border-bottom border-body row" data-bs-theme="dark">
         <!-- Navbar content -->
-        <img src="" alt="websiteIcon">
-        <div>
-            <nav>
-                <ul>
-                    <li><a href="">Home</a></li>
-                    <li>
-                        <select>
-                            <option value="topic">Categories</option>
-                            <option value="shooting"><a href="">Shooting</a></option>
-                            <option value="racing"><a href="">Racing</a></option>
-                            <option value="mini"><a href="">Mini</a></option>
-                        </select>
-                    </li>
-                    <li>Product</li>
-                    <li>Contact</li>
-                    <li>Blog</li>
-                </ul>
-            </nav>
+        <div class="col"><h2 style=" color: white;font-size: 1.3rem;margin: 0;"><span style="color: #F8832A">DhanuX</span>Gaming</h2></div>
+        <div class="col">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li>
+                    <select style="border: none;color: #1A1A1A">
+                        <option value="topic">Categories</option>
+                        <option value="shooting"><a href="">Shooting</a></option>
+                        <option value="racing"><a href="">Racing</a></option>
+                        <option value="mini"><a href="">Mini</a></option>
+                    </select>
+                </li>
+                <li><a href="">Product</a></li></li>
+                <li><a href="">Contact</a></li>
+                <li><a href="">Blog</a></li>
+            </ul>
+        </div>
+        <div class="col">
+            <button type="button"><a href=""><img src="assets/icons/icons8-search-50.png" alt="search icon"></a></button>
+            <button type="button"><a href=""><img src="assets/icons/icons8-account-50.png" alt="acount icon"></a></button>
+            <button type="button"><a href=""><img src="assets/icons/icons8-bag-50.png" alt="cart icon"></a></button>
         </div>
     </nav>
-    <%--<nav>
-<ul>
-
-        </ul>
-    </nav>--%>
-    <section>
-
-    </section>
 </header>
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
