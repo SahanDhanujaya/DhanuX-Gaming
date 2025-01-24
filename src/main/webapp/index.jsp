@@ -106,7 +106,7 @@
 
 <section class="special-category">
     <div class="container">
-        <h2>Special Category</h2>
+        <h2>Special <span style="color: white">Category</span></h2>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
