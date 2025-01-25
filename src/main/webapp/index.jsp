@@ -23,16 +23,8 @@
         <div class="col col-sm col-md col-lg col-xl col-xxl">
             <ul>
                 <li><a href="">Home</a></li>
-                <li>
-                    <select style="border: none;background: #1A1A1A;color: white;">
-                        <option value="topic">Categories</option>
-                        <option value="shooting"><a href="">Shooting</a></option>
-                        <option value="racing"><a href="">Racing</a></option>
-                        <option value="mini"><a href="">Mini</a></option>
-                    </select>
-                </li>
+                <li><a href="category.jsp">Category</a> </li>
                 <li><a href="">Product</a></li>
-                </li>
                 <li><a href="">Contact</a></li>
                 <li><a href="">Blog</a></li>
             </ul>
@@ -40,7 +32,7 @@
         <div id="nav-btn" class="col col-sm col-md col-lg col-xl col-xxl">
             <button type="button"><a href=""><img src="assets/icons/icons8-search-50.png"
                                                   alt="search icon"></a></button>
-            <button type="button"><a href=""><img src="assets/icons/icons8-account-50.png"
+            <button type="button"><a href="login.jsp"><img src="assets/icons/icons8-account-50.png"
                                                   alt="acount icon"></a></button>
             <button type="button"><a href=""><img src="assets/icons/icons8-bag-50.png"
                                                   alt="cart icon"></a></button>
@@ -72,7 +64,7 @@
     <div class="hero-content">
         <p>Star Wars Up Coming</p>
         <h1>GAME GUIDE UNOFFICIAL</h1>
-        <a href="#products" class="btn btn-warning btn-lg">Shop Now</a>
+        <a href="shopNow.jsp" class="btn btn-warning btn-lg">Shop Now</a>
     </div>
 </header>
 

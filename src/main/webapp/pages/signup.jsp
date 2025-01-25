@@ -14,7 +14,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #1A1A1A;
+      background: #333333;
     }
 
     .auth-container {
@@ -159,7 +159,7 @@
   <!-- Sign In Form -->
   <div class="form-container sign-in active">
     <h2>Sign In</h2>
-    <form>
+    <form action="admin" method="GET">
       <input type="email" placeholder="Email" required>
       <input type="password" placeholder="Password" required>
       <button type="submit">Sign In</button>

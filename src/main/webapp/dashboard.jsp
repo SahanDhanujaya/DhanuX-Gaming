@@ -78,9 +78,9 @@
 <!-- Sidebar -->
 <div class="sidebar">
     <h5 class="text-light">Navigation</h5>
-    <a href="#">Dashboard</a>
-    <a href="#">Analytics</a>
-    <a href="#">Reports</a>
+    <a href="dashboard.jsp">Dashboard</a>
+    <a href="admin-page.jsp">Admin</a>
+    <a href="product.jsp">Product</a>
     <a href="#">Settings</a>
 </div>
 

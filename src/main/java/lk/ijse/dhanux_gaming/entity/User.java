@@ -31,7 +31,12 @@ public class User {
     @Column(nullable = false,length = 10)
     private int mobile;
 
-    @OneToOne
+    @OneToOne(mappedBy = "user" ,cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
     @JoinColumn(name = "cartId")
     private Cart cart;
+
+    @Column(nullable = false)
+    private String profilePicture;
+
+
 }

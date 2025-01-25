@@ -36,4 +36,7 @@ public class Product {
 
     @OneToMany(mappedBy = "product" , cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
     private List<OrderDetail> orderDetail;
+
+    @Column(nullable = false)
+    private String profilePicture;
 }

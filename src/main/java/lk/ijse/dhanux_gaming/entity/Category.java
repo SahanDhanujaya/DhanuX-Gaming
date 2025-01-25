@@ -17,6 +17,9 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int categoryId;
 
+    @Column(nullable = false)
+    private String category;
+
     @OneToMany(mappedBy = "category" , cascade = CascadeType.ALL , fetch = FetchType.EAGER)
     private List<Product> productList;
 }

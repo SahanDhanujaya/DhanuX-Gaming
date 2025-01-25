@@ -16,7 +16,8 @@ public class Cart {
     @Column(nullable = false)
     private int cartId;
 
-    @OneToOne(mappedBy = "cart" , cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToOne
+    @JoinColumn(name = "userId")
     private User user;
 
 }
