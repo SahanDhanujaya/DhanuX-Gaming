@@ -52,13 +52,10 @@ public class AdminServlet extends HttpServlet {
             String filePath = uploadPath + File.separator + fileName;
             filePart.write(filePath); // Save the file
 
-            String type = req.getParameter("type");
-            if ("customer".equals(type)){
-                user.saveUser(new UserDto(name, address, email, type, mobile,  ""));
-            } else {
 
-                user.saveUser(new UserDto(name, address, email, userType, mobile, UPLOAD_DIR + "/" + fileName));
-            }
+
+                user.saveUser(new UserDto(name, address, email, userType, mobile,"", UPLOAD_DIR + "/" + fileName));
+
             resp.sendRedirect("admin-page.jsp?message=Customer Saved!!!");
         }
     }

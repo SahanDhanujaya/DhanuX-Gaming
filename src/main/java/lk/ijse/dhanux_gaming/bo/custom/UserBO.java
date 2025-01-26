@@ -8,4 +8,6 @@ import java.util.List;
 public interface UserBO extends SuperBO {
     boolean saveUser(UserDto user);
     List<UserDto> getUserList();
+
+    UserDto checkcCredintials(String email, String password);
 }

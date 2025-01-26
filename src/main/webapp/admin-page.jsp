@@ -116,7 +116,8 @@
                 <h5 class="card-title">Admins List</h5>
                 <%
                     List<UserDto> users = new ArrayList<>();
-                    users.add(new UserDto("dhanu","kandy","dhanu@gmailo.com","0773645354",12233,"WIN_20240808_19_32_36_Pro.jpg"));
+                    List<UserDto> users1 = (List<UserDto>) request.getAttribute("users");//line 2
+                    users.add(new UserDto("dhanu","kandy","dhanu@gmailo.com","0773645354",12233,"","WIN_20240808_19_32_36_Pro.jpg"));
                     if (users == null || users.isEmpty()) {
                 %>
                 <p>No users available to display.</p>

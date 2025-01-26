@@ -30,6 +30,9 @@ public class Product {
     @Column(nullable = false)
     private int qty;
 
+    @Column(nullable = false)
+    private String categoryName;
+
     @ManyToOne
     @JoinColumn(name = "categoryId")
     private Category category;

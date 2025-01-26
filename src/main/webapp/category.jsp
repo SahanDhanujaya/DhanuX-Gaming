@@ -1,4 +1,5 @@
-<%--
+<%@ page import="lk.ijse.dhanux_gaming.dto.ProductDto" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Dhanujaya(Dhanu)
   Date: 25/01/2025
@@ -186,9 +187,9 @@
             <div class="filter-section mb-4">
                 <h5 class="mb-3">Shop By Categories</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-decoration-none text-light">Fortnite</a></li>
-                    <li><a href="#" class="text-decoration-none text-light">Minecraft</a></li>
-                    <li><a href="#" class="text-decoration-none text-light">Shooters</a></li>
+                    <li><a href="#" class="text-decoration-none text-light">Shooting</a></li>
+                    <li><a href="#" class="text-decoration-none text-light">Racing</a></li>
+                    <li><a href="#" class="text-decoration-none text-light">Mini</a></li>
                 </ul>
             </div>
 
@@ -213,39 +214,53 @@
         <!-- Products Grid -->
         <div class="col-md-9">
             <div class="row">
+                <%
+                    List<ProductDto> products = (List<ProductDto>) request.getAttribute("games");
+                    if (!products.isEmpty()){
+                        for (ProductDto productDto: products) {
+
+                %>
                 <div class="col-md-4 mb-4">
                     <div class="card product-card">
-                        <img src="assets/img/sniper-ghost-warrior-2-wallpaper-preview.jpg" class="card-img-top" alt="Product">
+                        <img src="<%=productDto.getProfilePicture()%>" class="card-img-top" alt="Product">
                         <div class="card-body">
-                            <h5 class="product-title">Adam The Storyteller</h5>
-                            <p class="product-price">$250.00</p>
-                            <button class="btn btn-warning w-100 mb-2">Add to Cart</button>
-                            <button class="btn btn-success w-100">Buy Now</button>
+                            <h5 class="product-title"><%=productDto.getProductName()%></h5>
+                            <p class="product-price">$<%=productDto.getPrice()%>.00</p>
+                            <button class="btn btn-warning w-100 mb-2"><a href=""></a>Add to Cart</button>
+                            <button class="btn btn-success w-100"><a href=""></a>Buy Now</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card product-card">
-                        <img src="assets/img/HD-wallpaper-nfs-rivals-game-video.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <h5 class="product-title">Babel The Walking Box</h5>
-                            <p class="product-price">$180.00</p>
-                            <button class="btn btn-warning w-100 mb-2">Add to Cart</button>
-                            <button class="btn btn-success w-100">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="card product-card">
-                        <img src="assets/img/a-spectacular-gaming-adventure-with-this-stunning-4k-wallpaper-free-photo.jpg" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <h5 class="product-title">BangBangShooting</h5>
-                            <p class="product-price">$120.00</p>
-                            <button class="btn btn-warning w-100 mb-2">Add to Cart</button>
-                            <button class="btn btn-success w-100">Buy Now</button>
-                        </div>
-                    </div>
-                </div>
+                <%
+                        }
+                    } else {
+                %>
+                <h2>Nothing To Load Data</h2>
+                <%
+                    }
+                %>
+<%--                <div class="col-md-4 mb-4">--%>
+<%--                    <div class="card product-card">--%>
+<%--                        <img src="assets/img/HD-wallpaper-nfs-rivals-game-video.jpg" class="card-img-top" alt="Product">--%>
+<%--                        <div class="card-body">--%>
+<%--                            <h5 class="product-title">Babel The Walking Box</h5>--%>
+<%--                            <p class="product-price">$180.00</p>--%>
+<%--                            <button class="btn btn-warning w-100 mb-2">Add to Cart</button>--%>
+<%--                            <button class="btn btn-success w-100">Buy Now</button>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="col-md-4 mb-4">--%>
+<%--                    <div class="card product-card">--%>
+<%--                        <img src="assets/img/a-spectacular-gaming-adventure-with-this-stunning-4k-wallpaper-free-photo.jpg" class="card-img-top" alt="Product">--%>
+<%--                        <div class="card-body">--%>
+<%--                            <h5 class="product-title">BangBangShooting</h5>--%>
+<%--                            <p class="product-price">$120.00</p>--%>
+<%--                            <button class="btn btn-warning w-100 mb-2">Add to Cart</button>--%>
+<%--                            <button class="btn btn-success w-100">Buy Now</button>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
                 <!-- Add more products as needed -->
             </div>
         </div>

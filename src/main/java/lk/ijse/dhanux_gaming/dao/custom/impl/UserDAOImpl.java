@@ -50,4 +50,24 @@ public class UserDAOImpl implements UserDAO {
         session.close();
         return null;
     }
+
+    @Override
+    public User checkCredintials(String email, String password) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            Query query = session.createQuery("FROM User u WHERE u.password = :password");
+            query.setParameter("password",password);
+            User user = (User) query.uniqueResult();
+            transaction.commit();
+            return user;
+        }catch (Exception e){
+            transaction.rollback();
+            String message = "{ \n[\nmessage : User can't load\n]\n}";
+            return null;
+        }finally {
+            session.close();
+        }
+    }
 }

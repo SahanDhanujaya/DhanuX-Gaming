@@ -1,4 +1,7 @@
-<%--
+<%@ page import="lk.ijse.dhanux_gaming.dto.ProductDto" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="lk.ijse.dhanux_gaming.entity.Product" %><%--
   Created by IntelliJ IDEA.
   User: Dhanujaya(Dhanu)
   Date: 23/01/2025
@@ -64,36 +67,36 @@
                     <h2>Add Product</h2>
                 </div>
                 <div class="card-body">
-                    <form style="color: white" id="productForm">
+                    <form action="product" method="post" enctype="multipart/form-data" style="color: white" id="productForm">
                         <div  class="mb-3">
                             <label for="productName" class="form-label">Product Name</label>
-                            <input type="text" style="color: white" class="form-control" id="productName" placeholder="Enter product name" required>
+                            <input type="text" style="color: white" class="form-control" id="productName" name="product" placeholder="Enter product name" required>
                         </div>
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                            <textarea class="form-control" id="description" rows="3" placeholder="Enter product description" required></textarea>
+                            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter product description" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="price" class="form-label">Price</label>
-                            <input type="number" class="form-control" id="price" placeholder="Enter price" required>
+                            <input type="number" class="form-control" id="price" name="price" placeholder="Enter price" required>
                         </div>
                         <div class="mb-3">
                             <label for="qty" class="form-label">Quantity</label>
-                            <input type="number" class="form-control" id="qty" placeholder="Enter quantity" required>
+                            <input type="number" class="form-control" id="qty" name="qty" placeholder="Enter quantity" required>
                         </div>
                         <div class="mb-3">
                             <label for="category" class="form-label">Category</label>
-                            <select class="form-select" id="category" required>
+                            <select class="form-select" id="category" name="category" required>
                                 <option selected disabled>Choose category</option>
-                                <option value="electronics">Electronics</option>
-                                <option value="fashion">Fashion</option>
-                                <option value="grocery">Grocery</option>
-                                <option value="books">Books</option>
+                                <option value="Racing">Racing</option>
+                                <option value="Shooting">Shooting</option>
+                                <option value="Mini">Mini</option>
+                                <option value="Adventure">Adventure</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="productImage" class="form-label">Product Image</label>
-                            <input type="file" class="form-control" id="productImage" accept="image/*" required>
+                            <input type="file" class="form-control" id="productImage" name="productImage" accept="image/*" required>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">Add Product</button>
                     </form>
@@ -106,7 +109,9 @@
     <div class="row mt-5">
         <div class="col">
             <h3 class="text-center">Product List</h3>
+
             <table class="table table-dark table-bordered table-hover">
+
                 <thead class="text-center">
                 <tr>
                     <th>#</th>
@@ -119,6 +124,30 @@
                 </tr>
                 </thead>
                 <tbody id="productTableBody" class="text-center">
+                <%
+                    List<ProductDto> productDtoList = (List<ProductDto>) request.getAttribute("products");
+                    if (!productDtoList.isEmpty()){
+                        for (ProductDto productDto: productDtoList) {
+                            int i = 0;
+                %>
+                <tr>
+                    <td><%=++i%></td>
+                    <td><%=productDto.getProductName()%></td>
+                    <td><%=productDto.getDescription()%></td>
+                    <td><%=productDto.getPrice()%></td>
+                    <td><%=productDto.getQty()%></td>
+                    <td><%=productDto.getCategory()%></td>
+                    <td><img src="<%=productDto.getProfilePicture()%>" width="100px" height="100px" alt="product pic"></td>
+                </tr>
+                <%
+                        }
+                    } else {
+
+                %>
+                <h1>Nothing data</h1>
+                <%
+                    }
+                %>
                 <!-- Dynamic rows will be added here -->
                 </tbody>
             </table>
@@ -128,5 +157,9 @@
 
 <!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/jquery-3.2.1.min.js"></script>
+<script>
+    $('#productTableBody').DataTable().ajax.reload();
+</script>
 </body>
 </html>

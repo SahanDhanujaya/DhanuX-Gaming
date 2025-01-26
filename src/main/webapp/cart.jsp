@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -15,136 +16,149 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #111;
-      color: #fff;
+      background-color: #121212;
+      color: #ffffff;
     }
-    .product-card {
-      background-color: #222;
+    .shopping-cart {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .cart-item {
+      border-bottom: 1px solid #444;
+      padding: 10px 0;
+    }
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    .cart-item img {
+      background-color: #2c2c2c;
+    }
+    .card-details {
+      background-color: #1e1e1e;
+      color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .card-details input, .card-details select {
+      background-color: #2c2c2c;
+      color: #ffffff;
       border: none;
-      border-radius: 10px;
-      overflow: hidden;
     }
-    .product-card img {
-      height: 200px;
-      object-fit: cover;
+    .btn-checkout {
+      background-color: #ffcc00;
+      color: #000;
     }
-    .product-title {
-      font-size: 1.1rem;
+    .btn-light {
+      background-color: #2c2c2c;
+      color: #ffffff;
+      border: 1px solid #444;
     }
-    .product-price {
-      color: #f39c12;
-      font-weight: bold;
+    .btn-light:hover {
+      background-color: #3c3c3c;
     }
-    .filter-section {
-      background-color: #222;
-      border-radius: 10px;
-      padding: 15px;
-    }
-    .footer {
-      background-color: #111;
-      color: #bbb;
-      padding: 20px 0;
-    }
-    .footer a {
-      color: #f39c12;
-      text-decoration: none;
-    }
-    .footer a:hover {
-      text-decoration: underline;
+    .btn-danger {
+      background-color: #ff4444;
     }
   </style>
 </head>
 <body>
 <div class="container my-5">
-  <div class="row">
-    <!-- Sidebar Filters -->
-    <div class="col-md-3">
-      <div class="filter-section mb-4">
-        <h5 class="mb-3">Shop By Categories</h5>
-        <ul class="list-unstyled">
-          <li><a href="#" class="text-decoration-none text-light">Fortnite</a></li>
-          <li><a href="#" class="text-decoration-none text-light">Minecraft</a></li>
-          <li><a href="#" class="text-decoration-none text-light">Shooters</a></li>
-        </ul>
-      </div>
-
-      <div class="filter-section">
-        <h5 class="mb-3">Filter By</h5>
-
-        <h6>Availability</h6>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="inStock">
-          <label class="form-check-label" for="inStock">In stock</label>
+  <div class="row g-4">
+    <!-- Shopping Cart Section -->
+    <div class="col-md-7">
+      <div class="shopping-cart">
+        <h4>Your Shopping Cart</h4>
+        <div class="cart-item d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <img src="https://via.placeholder.com/50" alt="item" class="rounded-circle me-3">
+            <div>
+              <p class="mb-0">Denim T-Shirt</p>
+              <small>Ref: 007197456</small>
+            </div>
+          </div>
+          <div class="text-center">
+            <p class="mb-0">Blue</p>
+          </div>
+          <div class="text-center d-flex align-items-center">
+            <button class="btn btn-light btn-sm">-</button>
+            <span class="mx-2">2</span>
+            <button class="btn btn-light btn-sm">+</button>
+          </div>
+          <div>
+            <p class="mb-0">7500.00 NGN</p>
+          </div>
+          <button class="btn btn-danger btn-sm">&times;</button>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="outOfStock">
-          <label class="form-check-label" for="outOfStock">Out of stock</label>
-        </div>
 
-        <h6 class="mt-3">Price</h6>
-        <input type="range" class="form-range" min="0" max="500" step="10">
+        <!-- Repeat this block for other items -->
+        <div class="cart-item d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <img src="https://via.placeholder.com/50" alt="item" class="rounded-circle me-3">
+            <div>
+              <p class="mb-0">Denim Pants</p>
+              <small>Ref: 011015233</small>
+            </div>
+          </div>
+          <div class="text-center">
+            <p class="mb-0">Blue</p>
+          </div>
+          <div class="text-center d-flex align-items-center">
+            <button class="btn btn-light btn-sm">-</button>
+            <span class="mx-2">3</span>
+            <button class="btn btn-light btn-sm">+</button>
+          </div>
+          <div>
+            <p class="mb-0">9000.00 NGN</p>
+          </div>
+          <button class="btn btn-danger btn-sm">&times;</button>
+        </div>
+        <!-- End repeat -->
+
+        <div class="text-end mt-3">
+          <strong>Subtotal:</strong> 45500.00 NGN
+        </div>
+        <div class="text-start mt-3">
+          <a href="#" class="btn btn-link">Back to Shop</a>
+        </div>
       </div>
     </div>
 
-    <!-- Products Grid -->
-    <div class="col-md-9">
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card product-card">
-            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product">
-            <div class="card-body">
-              <h5 class="product-title">Adam The Storyteller</h5>
-              <p class="product-price">$250.00</p>
-              <button class="btn btn-warning w-100">Add to Cart</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4">
-          <div class="card product-card">
-            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product">
-            <div class="card-body">
-              <h5 class="product-title">Babel The Walking Box</h5>
-              <p class="product-price">$180.00</p>
-              <button class="btn btn-warning w-100">Select Option</button>
-            </div>
-          </div>
-        </div>
-        <!-- Add more products as needed -->
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h5>Contact Us</h5>
-        <p>GameWar - Video Game Store<br>San Francisco, CA</p>
-        <p>Phone: +1 012-345-6789</p>
-      </div>
-      <div class="col-md-4">
-        <h5>Quick Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="#">Search</a></li>
-          <li><a href="#">About Us</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <h5>Newsletter</h5>
+    <!-- Card Details Section -->
+    <div class="col-md-5">
+      <div class="card-details">
+        <h4>Card Details</h4>
         <form>
-          <div class="input-group">
-            <input type="email" class="form-control" placeholder="Enter your email">
-            <button class="btn btn-warning">Subscribe</button>
+          <div class="mb-3">
+            <label for="cardType" class="form-label">Select Card Type</label>
+            <select id="cardType" class="form-select">
+              <option>Visa</option>
+              <option>MasterCard</option>
+              <option>Verve</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="cardNumber" class="form-label">Card Number</label>
+            <input type="text" id="cardNumber" class="form-control" placeholder="Enter card number">
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="expiryDate" class="form-label">Expiry Date</label>
+              <input type="text" id="expiryDate" class="form-control" placeholder="MM/YY">
+            </div>
+            <div class="col">
+              <label for="cvv" class="form-label">CVV</label>
+              <input type="text" id="cvv" class="form-control" placeholder="CVV">
+            </div>
+          </div>
+          <div class="mt-4">
+            <button type="button" class="btn btn-checkout w-100">Checkout</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-</footer>
-
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

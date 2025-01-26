@@ -31,6 +31,9 @@ public class User {
     @Column(nullable = false,length = 10)
     private int mobile;
 
+    @Column(nullable = false)
+    private String password;
+
     @OneToOne(mappedBy = "user" ,cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
     @JoinColumn(name = "cartId")
     private Cart cart;

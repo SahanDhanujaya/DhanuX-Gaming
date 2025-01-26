@@ -5,6 +5,6 @@ import lk.ijse.dhanux_gaming.entity.User;
 import java.util.List;
 
 public interface CrudDAO<T> extends SuperDAO {
-    boolean save(User user);
+    boolean save(T obj);
     List<T> getList();
 }

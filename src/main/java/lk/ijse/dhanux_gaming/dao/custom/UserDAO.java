@@ -5,4 +5,5 @@ import lk.ijse.dhanux_gaming.entity.User;
 
 public interface UserDAO extends CrudDAO<User> {
 
+    User checkCredintials(String email, String password);
 }

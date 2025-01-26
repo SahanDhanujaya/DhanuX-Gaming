@@ -7,6 +7,7 @@
     <meta name="keyword" content="gaming,html,css,boostrap,jsp,selling,buying">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://i.pinimg.com/originals/1f/83/a1/1f83a1b8a9545e203cd48c2cc972a0d9.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="view/style.css">
     <title>Home</title>
@@ -23,7 +24,7 @@
         <div class="col col-sm col-md col-lg col-xl col-xxl">
             <ul>
                 <li><a href="">Home</a></li>
-                <li><a href="category.jsp">Category</a> </li>
+                <li><a href="category">Category</a> </li>
                 <li><a href="">Product</a></li>
                 <li><a href="">Contact</a></li>
                 <li><a href="">Blog</a></li>
@@ -32,8 +33,23 @@
         <div id="nav-btn" class="col col-sm col-md col-lg col-xl col-xxl">
             <button type="button"><a href=""><img src="assets/icons/icons8-search-50.png"
                                                   alt="search icon"></a></button>
-            <button type="button"><a href="login.jsp"><img src="assets/icons/icons8-account-50.png"
-                                                  alt="acount icon"></a></button>
+            <%
+                String name1 = request.getParameter("message");
+                if (name1 != null){
+
+            %>
+            <button type="button"><a href="registerPage.jsp"><img src="assets/icons/account.png"
+                                                                  alt="acount icon"></a><%=name1%></button>
+            <%
+                }else {
+
+            %>
+            <button type="button"><a href="registerPage.jsp"><img src="assets/icons/icons8-account-50.png"
+                                                                  alt="acount icon"></a>Sign in</button>
+            <%
+                }
+            %>
+
             <button type="button"><a href=""><img src="assets/icons/icons8-bag-50.png"
                                                   alt="cart icon"></a></button>
         </div>
@@ -181,7 +197,24 @@
 <footer class="footer text-center">
     <p>&copy; 2025 Game Guide. All rights reserved. | <a href="#">Privacy Policy</a></p>
 </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    <%
+        String name = request.getParameter("message");
+        if (!name.equals(null)){
+
+    %>
+    Swal.fire({
+        title: "Registration!",
+        text: <%=name %>" Welcome to game world",
+        icon: "success"
+    });
+    <%
+        }
+    %>
+
+
+</script>
 </body>
 </html>

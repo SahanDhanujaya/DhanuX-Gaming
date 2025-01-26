@@ -11,15 +11,22 @@ import lk.ijse.dhanux_gaming.dto.UserDto;
 
 import java.io.IOException;
 
-@WebServlet(name = "CustomerSaveServlet", value = "/customer-save")
-public class CustomerSaveServlet extends HttpServlet {
+@WebServlet(name = "LoginServlet" , value = "/login")
+public class LoginServlet extends HttpServlet {
     UserBO userBO = (UserBO) BOFactory.getBoFactory(BOFactory.BOType.USER);
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        userBO.saveUser(new UserDto(name,"any",email,"customer",071234567,password,"profile"));
-        resp.sendRedirect("registerPage.jsp?message="+name +"Register Successfully");
+
+        UserDto userDto = userBO.checkcCredintials(email, password);
+        if (userDto != null){
+            resp.setStatus(HttpServletResponse.SC_ACCEPTED);
+            resp.sendRedirect("index.jsp?message="+userDto.getEmail());
+        } else {
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            resp.sendRedirect("index.jsp?message=null");
+        }
+
     }
 }
